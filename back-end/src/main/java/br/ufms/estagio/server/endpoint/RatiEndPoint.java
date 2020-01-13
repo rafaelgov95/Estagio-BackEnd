@@ -73,13 +73,13 @@ public class RatiEndPoint extends ReadWriteEndPoint<Rati,Long, RatiService> {
         return ratiRepository.findAll();
     }
 
-    @RequestMapping(path = "/admin/resposta",method = RequestMethod.POST)
+    @RequestMapping(path = "/resposta",method = RequestMethod.POST)
     public Rati resposta(@RequestHeader(value="Authorization") String Token, @RequestBody String body){
         Gson g = new Gson();
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
         String[] split_string = Token.split("\\.");
-        String base64EncodedBody = split_string[1];
+        String base64EncodedBody = split_string[0];
         Base64 base64Url = new Base64(true);
         String tokendecoder = new String(base64Url.decode(base64EncodedBody));
         JsonElement element = g.fromJson(tokendecoder, JsonElement.class);

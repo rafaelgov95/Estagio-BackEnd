@@ -83,7 +83,7 @@ public class LoginAuthenticationProvider implements AuthenticationProvider {
 
     private String sendingGetRequest(String token, String dn) throws Exception {
         dn = dn.replace(" ", "%20");
-        String myurl = "https://sistemas5.ufms.br/passaporte-ws/api/ad/" + dn;
+        String myurl = "https://api.ufms.br/passaporte-ws/ad/" + dn;
         HttpClient client = HttpClientBuilder.create().build();
         HttpGet request = new HttpGet(myurl);
         request.setHeader("X-AUTH-TOKEN", token);

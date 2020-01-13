@@ -16,8 +16,7 @@ public class LoginEndpoint {
 
 
     @PostMapping(path = "")
-    public ResponseEntity get(@RequestBody String dados) {
-        return ResponseEntity.ok(dados);
+    public ResponseEntity post() {
+        return ResponseEntity.ok("{}");
     }
-
 }
